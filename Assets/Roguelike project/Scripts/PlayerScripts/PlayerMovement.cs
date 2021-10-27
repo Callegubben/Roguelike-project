@@ -5,13 +5,19 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
+    public PlayerStats stats;
     public Animator animator;
 
-    public float runSpeed = 40f;
+    public float runSpeed;
 
     float horizontalMove = 0f;
     bool jump = false;
     private bool crouch = false;
+
+    private void Start()
+    {
+        runSpeed = stats.speed;
+    }
 
     void Update()
     {
