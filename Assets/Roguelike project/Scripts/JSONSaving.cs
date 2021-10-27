@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Linq;
+using System;
 
 public class JSONSaving : MonoBehaviour
 {
-    PlayerData playerData;
     public string Name;
     public float Health;
     private int Strength;
 
-    [TextArea] public string JsonData;
+    [TextArea(4,20)] public string JsonData;
     private string filename = "Savedata.game";
     private string path;
 
@@ -48,17 +48,18 @@ public class JSONSaving : MonoBehaviour
     }
     public void SavePlayerData()
     {
-        path = Application.persistentDataPath;
+        path = Application.persistentDataPath + $"\\{filename}";
         print(path);
-        PlayerData _playerData = new PlayerData
+        PlayerData playerData = new PlayerData
         {
             Name = Name,
             Health = Health,
             Position = transform.position,
             Strength = Strength
         };
-        JsonData = JsonUtility.ToJson(_playerData, true);
-        using (FileStream stream = File.OpenWrite($"{path}\\{filename}"))
+        JsonData = JsonUtility.ToJson(playerData, true);
+        File.WriteAllText(path, "");
+        using (FileStream stream = File.OpenWrite(path))
         {
             byte[] buffer = JsonData.Select(@char => (byte)@char).ToArray();
             stream.Write(buffer, 0, JsonData.Length);
@@ -66,6 +67,7 @@ public class JSONSaving : MonoBehaviour
     }
 }
 
+[Serializable]
 public class PlayerData
 {
     [Header("Player Data")]
