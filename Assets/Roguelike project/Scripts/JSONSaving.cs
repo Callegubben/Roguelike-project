@@ -48,6 +48,7 @@ public class JSONSaving : MonoBehaviour
     }
     public void SavePlayerData()
     {
+
         path = Application.persistentDataPath + $"\\{filename}";
         print(path);
         PlayerData playerData = new PlayerData
