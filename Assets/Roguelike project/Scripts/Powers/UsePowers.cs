@@ -11,6 +11,7 @@ public class UsePowers : MonoBehaviour
     {
         if (PickUpEvent == null)
             PickUpEvent = new UnityEvent();
+        gameObject.GetComponent<SpriteRenderer>().sprite = passivePower.icon;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,6 +19,12 @@ public class UsePowers : MonoBehaviour
         if (collision is CircleCollider2D)
         {
             PickUpEvent.Invoke();
+            Destroy(gameObject);
         }
+    }
+
+    public void DestroyOnPickup()
+    {
+        Destroy(gameObject);
     }
 }

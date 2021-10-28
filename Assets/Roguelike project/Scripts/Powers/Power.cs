@@ -7,6 +7,7 @@ public abstract class Power : ScriptableObject
     public string powerName;
     public int powerID;
     public string powerDescription;
+    public Sprite icon;
 
     public virtual void UsePower()
     {

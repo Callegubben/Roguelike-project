@@ -15,3 +15,5 @@ MonoBehaviour:
   powerName: Health Up
   powerID: 1
   powerDescription: Increases max health
+  icon: {fileID: 21300000, guid: f106f73fc33df4c4d9a3e8a5cb54db28, type: 3}
+  powerType: 1

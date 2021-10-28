@@ -11,18 +11,11 @@ public class PlayerStats : MonoBehaviour
     public float currentHealth;
     public float speed;
 
-    void Start()
+    private void OnEnable()
     {
         name = playerStats.name;
         maxHealth = playerStats.maxHealth;
         currentHealth = playerStats.currentHealth;
         speed = playerStats.speed;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
