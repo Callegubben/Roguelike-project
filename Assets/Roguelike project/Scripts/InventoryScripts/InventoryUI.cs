@@ -10,7 +10,9 @@ public class InventoryUI : MonoBehaviour
     public Inventory inventory;
 
     public Transform itemSlotParent;
-    public InventorySlot[] inventorySlots;
+    public PassiveInventorySlot[] inventorySlots;
+
+    public ActiveInventorySlot activeInventorySlot;
 
     public Object InventorySlotPrefab;
     private float columnCount = 0, rowCount = 0;
@@ -19,18 +21,15 @@ public class InventoryUI : MonoBehaviour
     {
         if (pickupEvent == null)
             pickupEvent = new UnityEvent();
-        pickupEvent.AddListener(DrawUI);
+        pickupEvent.AddListener(DrawUIPassivePower);
     }
 
     private void Update()
     {
-        if (inventory.addItemTriggered)
-        {
-            DrawUI();
-        }
+        
     }
 
-    public void DrawUI()
+    public void DrawUIPassivePower()
     {
         float posX = 5 + (30 * columnCount);
         float posY = -5 - (30 * rowCount);
@@ -38,12 +37,17 @@ public class InventoryUI : MonoBehaviour
         GameObject newInventorySlot = (GameObject)Instantiate(InventorySlotPrefab, itemSlotParent, false);
         RectTransform newSlotTransform = newInventorySlot.GetComponent<RectTransform>();
         newSlotTransform.anchoredPosition = newSlotPosition;
-        newInventorySlot.GetComponent<InventorySlot>().AddPower(inventory.passivePowersInventory[inventory.passivePowersInventory.Count-1]);
+        newInventorySlot.GetComponent<PassiveInventorySlot>().AddPower(inventory.passivePowersInventory[inventory.passivePowersInventory.Count-1]);
         columnCount++;
         if (columnCount > 3)
         {
             columnCount = 0;
             rowCount++;
         }
+    }
+
+    public void DrawUIActivePower()
+    {
+        activeInventorySlot.AddPower(inventory.currentActivePower);
     }
 }

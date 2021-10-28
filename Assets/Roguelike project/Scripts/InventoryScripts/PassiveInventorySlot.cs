@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour
+public class PassiveInventorySlot : MonoBehaviour
 {
     public Image icon;
     PassivePower power;

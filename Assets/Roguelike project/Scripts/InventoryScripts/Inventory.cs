@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public GameObject player;
+    public InventoryUI inventoryUI;
     public List<PassivePower> passivePowersInventory;
     public ActivePower currentActivePower;
     [HideInInspector] public bool addItemTriggered;
@@ -15,9 +16,14 @@ public class Inventory : MonoBehaviour
         addItemTriggered = false;
     }
 
-    public void AddItemToInventory(PassivePower powerToAdd)
+    public void AddPassiveItemToInventory(PassivePower powerToAdd)
     {
         passivePowersInventory.Add(powerToAdd);
-        addItemTriggered = true;
+        inventoryUI.DrawUIPassivePower();
+    }
+    public void AddActiveItemToInventory(ActivePower powerToAdd)
+    {
+        currentActivePower = powerToAdd;
+        inventoryUI.DrawUIActivePower();
     }
 }

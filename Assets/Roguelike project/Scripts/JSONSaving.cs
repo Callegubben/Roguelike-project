@@ -7,9 +7,14 @@ using System;
 
 public class JSONSaving : MonoBehaviour
 {
+
+    public PlayerStats playerStats;
+    public Inventory inventory;
+    public InventoryUI inventoryUI;
     public string Name;
-    public float Health;
-    private int Strength;
+    public float MaxHealth;
+    public float CurrentHealth;
+    private int Speed;
 
     [TextArea(4,20)] public string JsonData;
     private string filename = "Savedata.game";
@@ -41,9 +46,10 @@ public class JSONSaving : MonoBehaviour
             JsonData = new string(data);
             PlayerData loadData = JsonUtility.FromJson<PlayerData>(JsonData);
             Name = loadData.Name;
-            Health = loadData.Health;
+            MaxHealth = loadData.MaxHealth;
+            CurrentHealth = loadData.CurrentHealth;
             gameObject.transform.position = loadData.Position;
-            Strength = loadData.Strength;
+            Speed = loadData.Speed;
         }
     }
     public void SavePlayerData()
@@ -54,9 +60,10 @@ public class JSONSaving : MonoBehaviour
         PlayerData playerData = new PlayerData
         {
             Name = Name,
-            Health = Health,
+            MaxHealth = MaxHealth,
+            CurrentHealth = CurrentHealth,
             Position = transform.position,
-            Strength = Strength
+            Speed = Speed
         };
         JsonData = JsonUtility.ToJson(playerData, true);
         File.WriteAllText(path, "");
@@ -71,15 +78,9 @@ public class JSONSaving : MonoBehaviour
 [Serializable]
 public class PlayerData
 {
-    [Header("Player Data")]
     public string Name;
-    public float Health;
+    public float MaxHealth;
+    public float CurrentHealth;
+    public int Speed;
     public Vector3 Position;
-
-    [SerializeField] private int _strength;
-
-    public int Strength { 
-        get => _strength; 
-        set => _strength = value; 
-    }
 }
