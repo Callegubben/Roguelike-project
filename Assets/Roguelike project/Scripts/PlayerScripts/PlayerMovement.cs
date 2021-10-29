@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     public PlayerStats stats;
     public Animator animator;
+    public Inventory inventory;
 
     public float runSpeed;
 
@@ -33,12 +34,22 @@ public class PlayerMovement : MonoBehaviour
         {
             crouch = true;
             animator.SetBool("IsCrouching", true);
-
         }
         else if (Input.GetButtonUp("Crouch"))
         {
             crouch = false;
             animator.SetBool("IsCrouching", false);
+        }
+        if (Input.GetButtonDown("ActivatePower"))
+        {
+            if (inventory.currentActivePower != null)
+            {
+                inventory.ActivateCurrentPower();
+            }
+            else
+            {
+                print("No item equipped");
+            }
         }
     }
 

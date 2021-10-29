@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour
     public List<PassivePower> passivePowersInventory;
     public ActivePower currentActivePower;
     [HideInInspector] public bool addItemTriggered;
+    private bool onCooldown;
 
     private void LateUpdate()
     {
@@ -25,5 +26,26 @@ public class Inventory : MonoBehaviour
     {
         currentActivePower = powerToAdd;
         inventoryUI.DrawUIActivePower();
+    }
+
+    public void ActivateCurrentPower()
+    {
+        if (!onCooldown)
+        {
+            currentActivePower.UsePower();
+            StartCoroutine(CooldownTimer());
+        }
+        else if (onCooldown)
+        {
+            print("Ability on cooldown");
+        }
+    }
+
+
+    IEnumerator CooldownTimer()
+    {
+        onCooldown = true;
+        yield return new WaitForSecondsRealtime(currentActivePower.cooldownTime);
+        onCooldown = false;
     }
 }

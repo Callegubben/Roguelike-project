@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EffectManager : MonoBehaviour
 {
+    [SerializeField] private Object bombPrefab;
     public GameObject player;
+    public Inventory inventory;
     public void ChangePlayerMaxHealth(float value)
     {
         player.GetComponent<PlayerStats>().maxHealth += value;
@@ -14,6 +16,20 @@ public class EffectManager : MonoBehaviour
     public void DoDamage(float value)
     {
         player.GetComponent<PlayerStats>().currentHealth -= value;
+    }
+
+    public void ActivePowerEffect(int powerID)
+    {
+        switch (powerID)
+        {
+            case 2:
+                GameObject newBomb = (GameObject)Instantiate(bombPrefab, player.transform.position, Quaternion.identity);
+                newBomb.GetComponent<SpriteRenderer>().sprite = inventory.currentActivePower.icon;
+                break;
+                
+            default:
+                break;
+        }
     }
 
     private void OnGUI()
