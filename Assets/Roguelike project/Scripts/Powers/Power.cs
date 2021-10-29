@@ -11,7 +11,7 @@ public abstract class Power : ScriptableObject
 
     public virtual void UsePower()
     {
-        print("Not Possible!")
+
     }
 
     public enum PowerType
