@@ -14,6 +14,7 @@ public abstract class Power : ScriptableObject
 
     }
 
+
     public enum PowerType
     {
         Active,
