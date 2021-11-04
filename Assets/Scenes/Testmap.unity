@@ -36276,12 +36276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb490cd8f4664d2429c421666a5ea41c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 0}
-  inventory: {fileID: 0}
-  inventoryUI: {fileID: 0}
-  Name: 
-  MaxHealth: 0
-  CurrentHealth: 0
+  playerStats: {fileID: 592847316}
+  inventory: {fileID: 601277503}
+  inventoryUI: {fileID: 1540905716}
   JsonData: 
 --- !u!114 &592847316
 MonoBehaviour:
@@ -36295,7 +36292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be76657074fa7f841923457f66de15a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: 0ffada6f2e74f1b4c93715d7e2512b56, type: 2}
+  playerCharacterStats: {fileID: 0}
   name: 
   maxHealth: 0
   currentHealth: 0

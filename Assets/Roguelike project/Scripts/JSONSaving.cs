@@ -11,10 +11,10 @@ public class JSONSaving : MonoBehaviour
     public PlayerStats playerStats;
     public Inventory inventory;
     public InventoryUI inventoryUI;
-    public string Name;
+    /*public string Name;
     public float MaxHealth;
     public float CurrentHealth;
-    private int Speed;
+    private int Speed;*/
 
     [TextArea(4,20)] public string JsonData;
     private string filename = "Savedata.game";
@@ -23,7 +23,7 @@ public class JSONSaving : MonoBehaviour
 
     private void OnEnable()
     {
-        LoadPlayerData();
+       LoadPlayerData();
     }
 
     private void OnDisable()
@@ -45,11 +45,10 @@ public class JSONSaving : MonoBehaviour
             }
             JsonData = new string(data);
             PlayerData loadData = JsonUtility.FromJson<PlayerData>(JsonData);
-            Name = loadData.Name;
-            MaxHealth = loadData.MaxHealth;
-            CurrentHealth = loadData.CurrentHealth;
+            playerStats.playerCharacterStats = loadData.playerCharacter;
+            inventory.currentActivePower = loadData.playerCurrentActivePower;
+            inventory.passivePowersInventory = loadData.playerPassivePowersInventory;
             gameObject.transform.position = loadData.Position;
-            Speed = loadData.Speed;
         }
     }
     public void SavePlayerData()
@@ -59,11 +58,10 @@ public class JSONSaving : MonoBehaviour
         print(path);
         PlayerData playerData = new PlayerData
         {
-            Name = Name,
-            MaxHealth = MaxHealth,
-            CurrentHealth = CurrentHealth,
-            Position = transform.position,
-            Speed = Speed
+            playerCharacter = playerStats.playerCharacterStats,
+            playerCurrentActivePower = inventory.currentActivePower,
+            playerPassivePowersInventory = inventory.passivePowersInventory,
+            Position = transform.position
         };
         JsonData = JsonUtility.ToJson(playerData, true);
         File.WriteAllText(path, "");
@@ -76,11 +74,10 @@ public class JSONSaving : MonoBehaviour
 }
 
 [Serializable]
-public class PlayerData
+public class PlayerData 
 {
-    public string Name;
-    public float MaxHealth;
-    public float CurrentHealth;
-    public int Speed;
+    public PlayerBase playerCharacter;
+    public ActivePower playerCurrentActivePower;
+    public List<PassivePower> playerPassivePowersInventory;
     public Vector3 Position;
 }

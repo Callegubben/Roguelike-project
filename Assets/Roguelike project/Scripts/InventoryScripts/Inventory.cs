@@ -12,6 +12,18 @@ public class Inventory : MonoBehaviour
     [HideInInspector] public bool addItemTriggered;
     private bool onCooldown;
 
+
+    private void OnEnable()
+    {
+        foreach (var item in passivePowersInventory)
+        {
+            inventoryUI.DrawUIPassivePower();
+        }
+        if (currentActivePower != null)
+        {
+            inventoryUI.DrawUIActivePower();
+        }
+    }
     private void LateUpdate()
     {
         addItemTriggered = false;
@@ -26,6 +38,11 @@ public class Inventory : MonoBehaviour
     {
         currentActivePower = powerToAdd;
         inventoryUI.DrawUIActivePower();
+    }
+
+    public void ClearInventory()
+    {
+
     }
 
     public void ActivateCurrentPower()
