@@ -10,7 +10,7 @@ public class InventoryUI : MonoBehaviour
     public Inventory inventory;
 
     public Transform itemSlotParent;
-    public PassiveInventorySlot[] inventorySlots;
+    public List<GameObject> inventorySlots;
 
     public ActiveInventorySlot activeInventorySlot;
 
@@ -38,6 +38,7 @@ public class InventoryUI : MonoBehaviour
         RectTransform newSlotTransform = newInventorySlot.GetComponent<RectTransform>();
         newSlotTransform.anchoredPosition = newSlotPosition;
         newInventorySlot.GetComponent<PassiveInventorySlot>().AddPower(inventory.passivePowersInventory[inventory.passivePowersInventory.Count-1]);
+        inventorySlots.Add(newInventorySlot);
         columnCount++;
         if (columnCount > 3)
         {
@@ -49,5 +50,16 @@ public class InventoryUI : MonoBehaviour
     public void DrawUIActivePower()
     {
         activeInventorySlot.AddPower(inventory.currentActivePower);
+    }
+
+    public void ResetInventoryUI()
+    {
+        columnCount = 0;
+        rowCount = 0;
+        activeInventorySlot.Clear();
+        foreach (var item in inventorySlots)
+        {
+            Destroy(item);
+        }
     }
 }

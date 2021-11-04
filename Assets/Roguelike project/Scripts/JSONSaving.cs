@@ -45,7 +45,10 @@ public class JSONSaving : MonoBehaviour
             }
             JsonData = new string(data);
             PlayerData loadData = JsonUtility.FromJson<PlayerData>(JsonData);
-            playerStats.playerCharacterStats = loadData.playerCharacter;
+            playerStats.defaultPlayerCharacterStats = loadData.playerCharacter;
+            playerStats.maxHealth = loadData.maxHealth;
+            playerStats.currentHealth = loadData.currentHealth;
+            playerStats.speed = loadData.speed;
             inventory.currentActivePower = loadData.playerCurrentActivePower;
             inventory.passivePowersInventory = loadData.playerPassivePowersInventory;
             gameObject.transform.position = loadData.Position;
@@ -58,7 +61,10 @@ public class JSONSaving : MonoBehaviour
         print(path);
         PlayerData playerData = new PlayerData
         {
-            playerCharacter = playerStats.playerCharacterStats,
+            playerCharacter = playerStats.defaultPlayerCharacterStats,
+            maxHealth = playerStats.maxHealth,
+            currentHealth = playerStats.currentHealth,
+            speed = playerStats.speed,
             playerCurrentActivePower = inventory.currentActivePower,
             playerPassivePowersInventory = inventory.passivePowersInventory,
             Position = transform.position
@@ -77,6 +83,9 @@ public class JSONSaving : MonoBehaviour
 public class PlayerData 
 {
     public PlayerBase playerCharacter;
+    public float maxHealth;
+    public float currentHealth;
+    public float speed;
     public ActivePower playerCurrentActivePower;
     public List<PassivePower> playerPassivePowersInventory;
     public Vector3 Position;

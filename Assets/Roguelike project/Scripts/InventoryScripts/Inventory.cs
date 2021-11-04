@@ -42,7 +42,10 @@ public class Inventory : MonoBehaviour
 
     public void ClearInventory()
     {
-
+        currentActivePower = null;
+        player.GetComponent<PlayerStats>().LoadDefaultStats();
+        passivePowersInventory.Clear();
+        inventoryUI.ResetInventoryUI();
     }
 
     public void ActivateCurrentPower()
@@ -64,5 +67,14 @@ public class Inventory : MonoBehaviour
         onCooldown = true;
         yield return new WaitForSecondsRealtime(currentActivePower.cooldownTime);
         onCooldown = false;
+    }
+
+
+    private void OnGUI()
+    {
+        if (GUI.Button(new Rect(10, 80, 100, 30), "Clear Inventory"))
+        {
+            ClearInventory();
+        }
     }
 }

@@ -23,4 +23,10 @@ public class ActiveInventorySlot : MonoBehaviour
     {
         print("Old active power replaced");
     }
+
+    public void Clear()
+    {
+        power = null;
+        icon.sprite = null;
+    }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public PlayerBase playerCharacterStats;
+    public PlayerBase defaultPlayerCharacterStats;
 
     public new string name;
     public float maxHealth;
@@ -13,9 +13,14 @@ public class PlayerStats : MonoBehaviour
 
     private void OnEnable()
     {
-        name = playerCharacterStats.name;
-        maxHealth = playerCharacterStats.maxHealth;
-        currentHealth = playerCharacterStats.currentHealth;
-        speed = playerCharacterStats.speed;
+        name = defaultPlayerCharacterStats.name;
+    }
+
+    public void LoadDefaultStats()
+    {
+        name = defaultPlayerCharacterStats.name;
+        maxHealth = defaultPlayerCharacterStats.maxHealth;
+        currentHealth = defaultPlayerCharacterStats.currentHealth;
+        speed = defaultPlayerCharacterStats.speed;
     }
 }
