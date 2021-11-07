@@ -36292,7 +36292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be76657074fa7f841923457f66de15a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCharacterStats: {fileID: 0}
+  defaultPlayerCharacterStats: {fileID: 11400000, guid: 0ffada6f2e74f1b4c93715d7e2512b56, type: 2}
   name: 
   maxHealth: 0
   currentHealth: 0
@@ -39605,7 +39605,7 @@ MonoBehaviour:
     ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7784201, y: 1}
+    m_SensorSize: {x: 2.1136801, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
