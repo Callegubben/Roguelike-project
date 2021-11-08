@@ -7,22 +7,33 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private Object bombPrefab;
     public GameObject player;
     public Inventory inventory;
+    private PlayerStats playerStats;
+
+    private void OnEnable()
+    {
+        playerStats = player.GetComponent<PlayerStats>();
+    }
     public void ChangePlayerMaxHealth(float value)
     {
-        player.GetComponent<PlayerStats>().maxHealth += value;
-        player.GetComponent<PlayerStats>().currentHealth += value;
+        playerStats.maxHealth += value;
+        playerStats.currentHealth += value;
+    }
+
+    public void ChangePlayerSpeed(float value)
+    {
+        playerStats.speed += value;
     }
 
     public void DoDamage(float value)
     {
-        player.GetComponent<PlayerStats>().currentHealth -= value;
+        playerStats.currentHealth -= value;
     }
 
     public void ActivePowerEffect(int powerID)
     {
         switch (powerID)
         {
-            case 2:
+            case 1:
                 GameObject newBomb = (GameObject)Instantiate(bombPrefab, player.transform.position, Quaternion.identity);
                 newBomb.GetComponent<SpriteRenderer>().sprite = inventory.currentActivePower.icon;
                 break;
@@ -38,6 +49,10 @@ public class EffectManager : MonoBehaviour
         {
             case 1:
                 ChangePlayerMaxHealth(25f);
+                break;
+
+            case 2:
+                ChangePlayerSpeed(5f);
                 break;
 
             default:

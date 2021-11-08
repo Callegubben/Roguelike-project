@@ -13,10 +13,7 @@ public class Altar : MonoBehaviour
     }
     public void SpawnItemFromPool()
     {
-        /*int randomNumber = Random.Range(0, altarPool.pool.Count);
-        Power tmpPower = altarPool.pool[randomNumber];*/
         powerSlot.power = altarPool.pool[Random.Range(0, altarPool.pool.Count)];
         powerSlot.UpdatePowerIcon();
-
     }
 }

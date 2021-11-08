@@ -9,20 +9,13 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public Inventory inventory;
 
-    public float runSpeed;
-
     float horizontalMove = 0f;
     bool jump = false;
     private bool crouch = false;
 
-    private void Start()
-    {
-        runSpeed = stats.speed;
-    }
-
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        horizontalMove = Input.GetAxisRaw("Horizontal") * stats.speed;
         animator.SetFloat("HorizontalSpeed", Mathf.Abs(horizontalMove));
 
         if (Input.GetButtonDown("Jump"))
