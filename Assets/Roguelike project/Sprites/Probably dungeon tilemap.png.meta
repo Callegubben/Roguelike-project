@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a241d3a7c61ff6a4081af99d57e18431
+guid: 4bd08057e78fb904aa669947aa8e242a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -66,7 +66,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -118,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3106f78e708c2f44be74346df129809
-      internalID: 1501109915
+      spriteID: de15e86c46e75614097da96cb3646592
+      internalID: 1564441342
       vertices: []
       indices: 
       edges: []
@@ -139,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa82cd53be9bced4ca3588d96f4541f8
-      internalID: -446235518
+      spriteID: 9594c100a9e40df46a3195ef28ed2d09
+      internalID: 265596083
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22ab2b836dbf8464192256bf75b5ce72
-      internalID: 1480397534
+      spriteID: fb26bbbd719530c4ba6e538d4f962c28
+      internalID: 451149063
       vertices: []
       indices: 
       edges: []
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79a45c64c78d349479a98e24a265aa38
-      internalID: 1614128742
+      spriteID: 4345691892f11ab4c97bc8a0bd12ddae
+      internalID: -101664278
       vertices: []
       indices: 
       edges: []
@@ -202,8 +202,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3401440b24895e48a065a47ce94762b
-      internalID: 895970518
+      spriteID: cc36aa9437d509b458986d3af29e8848
+      internalID: -965160959
       vertices: []
       indices: 
       edges: []
@@ -223,8 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cef8bed22e944d46b356d7a104e81d3
-      internalID: -510142973
+      spriteID: 9e149391ea3630e49aced2a740a3a6a3
+      internalID: -926195558
       vertices: []
       indices: 
       edges: []
@@ -244,8 +244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f42f8433c823c024aab01b9250f7a57a
-      internalID: 128782416
+      spriteID: 4cb41446a8cc49b499bce142b908e9fb
+      internalID: 127425000
       vertices: []
       indices: 
       edges: []
@@ -265,8 +265,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4942fa725949806499a6fea2ba766646
-      internalID: -831863969
+      spriteID: 1047af7c15846b4449d6d263203256db
+      internalID: -64235686
       vertices: []
       indices: 
       edges: []
@@ -286,8 +286,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3cb4635e9fdc584894413c3ecf30b7b
-      internalID: 398468442
+      spriteID: 3c495dc94b681fb4183c1a6f77083087
+      internalID: -2027511223
       vertices: []
       indices: 
       edges: []
@@ -307,8 +307,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5478601ffa29baa40b0eda6aa3fc7882
-      internalID: 370332692
+      spriteID: 829b252fe13034b4f92e07d77bab70ec
+      internalID: 1436471994
       vertices: []
       indices: 
       edges: []
@@ -328,8 +328,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d1115a442bf45f4d80c1976756f2201
-      internalID: -654460760
+      spriteID: d4a3b016b08f9b64ebbea400ecbb7127
+      internalID: 1231177658
       vertices: []
       indices: 
       edges: []
@@ -349,8 +349,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: faf2ee23d88ebff4c82d9d6d03b3067d
-      internalID: -1257279262
+      spriteID: e8c5d766003608747be0d9d14f4c6c42
+      internalID: -1198019327
       vertices: []
       indices: 
       edges: []
@@ -370,8 +370,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0c6ba142fd47d34d988516a5a4ef0ed
-      internalID: 632273004
+      spriteID: 3cfd709890ef0cf44b26d834edb385be
+      internalID: -76014492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Probably dungeon tilemap_13
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f03cf1741a69f7468ac6e402b37855a
+      internalID: 1220075814
       vertices: []
       indices: 
       edges: []
@@ -387,19 +408,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Probably dungeon tilemap_4: 895970518
-      Probably dungeon tilemap_5: -510142973
-      Probably dungeon tilemap_11: -1257279262
-      Probably dungeon tilemap_12: 632273004
-      Probably dungeon tilemap_8: 398468442
-      Probably dungeon tilemap_3: 1614128742
-      Probably dungeon tilemap_10: -654460760
-      Probably dungeon tilemap_6: 128782416
-      Probably dungeon tilemap_2: 1480397534
-      Probably dungeon tilemap_9: 370332692
-      Probably dungeon tilemap_7: -831863969
-      Probably dungeon tilemap_1: -446235518
-      Probably dungeon tilemap_0: 1501109915
+      Probably dungeon tilemap_4: -965160959
+      Probably dungeon tilemap_13: 1220075814
+      Probably dungeon tilemap_5: -926195558
+      Probably dungeon tilemap_11: -1198019327
+      Probably dungeon tilemap_12: -76014492
+      Probably dungeon tilemap_8: -2027511223
+      Probably dungeon tilemap_3: -101664278
+      Probably dungeon tilemap_10: 1231177658
+      Probably dungeon tilemap_6: 127425000
+      Probably dungeon tilemap_2: 451149063
+      Probably dungeon tilemap_9: 1436471994
+      Probably dungeon tilemap_7: -64235686
+      Probably dungeon tilemap_1: 265596083
+      Probably dungeon tilemap_0: 1564441342
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

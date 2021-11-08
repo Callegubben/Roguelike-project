@@ -13,4 +13,9 @@ public class ActivePower : Power
     {
         FindObjectOfType<EffectManager>().ActivePowerEffect(this.powerID);
     }
+
+    ActivePower()
+    {
+        type = PowerType.Active;
+    }
 }

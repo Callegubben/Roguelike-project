@@ -32,6 +32,19 @@ public class EffectManager : MonoBehaviour
         }
     }
 
+    public void PassivePowerEffect(int powerID)
+    {
+        switch (powerID)
+        {
+            case 1:
+                ChangePlayerMaxHealth(25f);
+                break;
+
+            default:
+                break;
+        }
+    }
+
     private void OnGUI()
     {
         if (GUI.Button(new Rect(10, 45, 60, 30), "Damage"))

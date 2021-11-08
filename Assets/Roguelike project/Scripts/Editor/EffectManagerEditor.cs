@@ -5,22 +5,23 @@ using UnityEditor;
 public class EffectManagerEditor : Editor
 {
     int damageAmount;
-
+    protected static bool ShowOffsetSettings = true;
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-        GUILayout.BeginHorizontal();
-
         EffectManager effectManager = (EffectManager)target;
 
-        damageAmount = EditorGUILayout.IntSlider(damageAmount, 0, 100);
+        ShowOffsetSettings = EditorGUILayout.Foldout(ShowOffsetSettings, "Debug menu");
 
-
-        if (GUILayout.Button("Do damage"))
+        if (ShowOffsetSettings)
         {
-            effectManager.DoDamage(damageAmount);
+            GUILayout.BeginHorizontal();
+            damageAmount = EditorGUILayout.IntSlider("Damage", damageAmount, 0, 100);
+            if (GUILayout.Button("Do damage"))
+            {
+                effectManager.DoDamage(damageAmount);
+            }
+            GUILayout.EndHorizontal();
         }
-        GUILayout.EndHorizontal();
     }
-
 }
