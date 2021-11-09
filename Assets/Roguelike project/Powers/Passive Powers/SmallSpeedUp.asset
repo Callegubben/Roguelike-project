@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67b7e2c4dab21c4fab6a307d412dfbd, type: 3}
   m_Name: SmallSpeedUp
   m_EditorClassIdentifier: 
-  powerName: 
-  powerID: 0
-  powerDescription: 
-  icon: {fileID: 0}
+  powerName: Small Speed Up
+  powerID: 2
+  powerDescription: Makes guy go faster
+  icon: {fileID: 21300000, guid: f328cfb376f849a44be29e5d61920c12, type: 3}
   type: 1
