@@ -12,8 +12,12 @@ public class Inventory : MonoBehaviour
     [HideInInspector] public bool addItemTriggered;
     private bool onCooldown;
 
+    private void Start()
+    {
+        RedrawInventoryUI();
+    }
 
-    private void OnEnable()
+    private void RedrawInventoryUI()
     {
         foreach (var item in passivePowersInventory)
         {
@@ -24,6 +28,7 @@ public class Inventory : MonoBehaviour
             inventoryUI.DrawUIActivePower();
         }
     }
+
     private void LateUpdate()
     {
         addItemTriggered = false;
@@ -43,7 +48,6 @@ public class Inventory : MonoBehaviour
     public void ClearInventory()
     {
         currentActivePower = null;
-        player.GetComponent<PlayerStats>().LoadDefaultStats();
         passivePowersInventory.Clear();
         inventoryUI.ResetInventoryUI();
     }

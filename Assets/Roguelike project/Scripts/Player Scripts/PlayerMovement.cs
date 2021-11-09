@@ -12,6 +12,11 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
     private bool crouch = false;
+    [SerializeField]
+    private bool touchingInteractable = false;
+    [SerializeField]
+    private Interactable interactableObject;
+
 
     void Update()
     {
@@ -32,6 +37,10 @@ public class PlayerMovement : MonoBehaviour
         {
             crouch = false;
             animator.SetBool("IsCrouching", false);
+        }
+        if (Input.GetButtonDown("Interact") && touchingInteractable)
+        {
+            interactableObject.Interact();
         }
         if (Input.GetButtonDown("ActivatePower"))
         {
@@ -56,4 +65,20 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(horizontalMove * Time.fixedDeltaTime , crouch, jump);
         jump = false;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Physics2D.IgnoreCollision(collision, GetComponent<BoxCollider2D>());
+        if (collision.gameObject.GetComponent<Interactable>())
+        {
+            touchingInteractable = true;
+            interactableObject = collision.gameObject.GetComponent<Interactable>();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        touchingInteractable = false;
+        interactableObject = null;
+    }
+
 }

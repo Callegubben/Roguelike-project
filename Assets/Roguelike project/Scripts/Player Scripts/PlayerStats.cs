@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerStats : MonoBehaviour
 {
+    [SerializeField] private SaveManager saveManager;
+    [SerializeField] private Inventory inventory;
     public PlayerBase defaultPlayerCharacterStats;
 
     public new string name;
@@ -13,7 +17,18 @@ public class PlayerStats : MonoBehaviour
 
     private void OnEnable()
     {
-        name = defaultPlayerCharacterStats.name;
+        if (name == "")
+        {
+            LoadDefaultStats();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (currentHealth <= 0)
+        {
+            PlayerDeath();
+        }
     }
 
     public void LoadDefaultStats()
@@ -22,6 +37,14 @@ public class PlayerStats : MonoBehaviour
         maxHealth = defaultPlayerCharacterStats.maxHealth;
         currentHealth = defaultPlayerCharacterStats.currentHealth;
         speed = defaultPlayerCharacterStats.speed;
+    }
+
+    public void PlayerDeath()
+    {
+        inventory.ClearInventory();
+        LoadDefaultStats();
+        saveManager.SavePlayerData();
+        SceneManager.LoadScene("Hub");
     }
 
     private void OnGUI()

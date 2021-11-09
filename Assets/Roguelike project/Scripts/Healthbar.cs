@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Healthbar : MonoBehaviour
 {
     [SerializeField] private RectTransform maxHealthBar, currentHealthBar;
     public PlayerStats playerStats;
-    public Text healthbarText;
+    public TextMeshProUGUI healthbarText;
 
     void Start()
     {

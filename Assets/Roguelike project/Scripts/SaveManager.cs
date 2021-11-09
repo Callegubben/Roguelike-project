@@ -5,36 +5,30 @@ using System.IO;
 using System.Linq;
 using System;
 
-public class JSONSaving : MonoBehaviour
+public class SaveManager : MonoBehaviour
 {
 
     public PlayerStats playerStats;
     public Inventory inventory;
     public InventoryUI inventoryUI;
-    /*public string Name;
-    public float MaxHealth;
-    public float CurrentHealth;
-    private int Speed;*/
+
 
     [TextArea(4,20)] public string JsonData;
     private string filename = "Savedata.game";
     private string path;
 
-
     private void OnEnable()
     {
-       LoadPlayerData();
-    }
-
-    private void OnDisable()
-    {
-       // SavePlayerData();
+        path = Application.persistentDataPath + $"\\{filename}";
+        if (File.Exists(path))
+        {
+            LoadPlayerData();
+        }
     }
 
     public void LoadPlayerData()
     {
-        path = Application.persistentDataPath;
-        using (FileStream stream = File.OpenRead($"{path}\\{filename}"))
+        using (FileStream stream = File.OpenRead(path))
         {
             byte[] buffer = new byte[stream.Length];
             stream.Read(buffer, 0, buffer.Length);
@@ -56,8 +50,6 @@ public class JSONSaving : MonoBehaviour
     }
     public void SavePlayerData()
     {
-
-        path = Application.persistentDataPath + $"\\{filename}";
         print(path);
         PlayerData playerData = new PlayerData
         {
