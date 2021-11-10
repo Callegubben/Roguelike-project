@@ -17,15 +17,11 @@ public class MainMenu : MonoBehaviour
         {
             SceneManager.LoadScene("Hub");
         }
-        
-        
     }
 
     public void QuitGame()
     {
         Application.Quit();
     }
-
-
 
 }

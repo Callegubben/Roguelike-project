@@ -59,12 +59,4 @@ public class EffectManager : MonoBehaviour
                 break;
         }
     }
-
-    private void OnGUI()
-    {
-        if (GUI.Button(new Rect(10, 45, 60, 30), "Damage"))
-        {
-            DoDamage(10);
-        }
-    }
 }

@@ -10,7 +10,8 @@ public class Checkpoint : MonoBehaviour
     {
         if (collision.CompareTag("Player") && collision is CircleCollider2D)
         {
-            saveManager.SavePlayerData(this);
+            collision.GetComponent<PlayerStats>().lastCheckpoint = transform.position;
+            saveManager.SavePlayerData();
         }
     }
 }

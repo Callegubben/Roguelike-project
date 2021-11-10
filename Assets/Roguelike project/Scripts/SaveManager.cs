@@ -17,12 +17,20 @@ public class SaveManager : MonoBehaviour
     private string filename = "Savedata.game";
     private string path;
 
+    public GameObject defaultSpawn;
+    private bool firstLoad = true;
+
     private void OnEnable()
     {
         path = Application.persistentDataPath + $"\\{filename}";
         if (File.Exists(path))
         {
             LoadPlayerData();
+        }
+        if (firstLoad)
+        {
+            playerStats.gameObject.transform.position = defaultSpawn.transform.position;
+            firstLoad = false;
         }
     }
 
@@ -48,19 +56,26 @@ public class SaveManager : MonoBehaviour
             inventory.passivePowersInventory = loadData.playerPassivePowersInventory;
             try
             {
-                playerStats.transform.position = loadData.lastCheckpoint.transform.position;
+                playerStats.lastCheckpoint = loadData.lastCheckpoint;
+                playerStats.transform.position = loadData.lastCheckpoint;
             }
             catch (MissingReferenceException)
             {
+                playerStats.lastCheckpoint = GameObject.Find("DefaultSpawn").transform.position;
                 playerStats.transform.position = GameObject.Find("DefaultSpawn").transform.position;
+                //playerStats.transform.position = loadData.Position;
+
             }
             catch (NullReferenceException)
             {
+                playerStats.lastCheckpoint = GameObject.Find("DefaultSpawn").transform.position;
                 playerStats.transform.position = GameObject.Find("DefaultSpawn").transform.position;
+                //playerStats.transform.position = loadData.Position;
+
             }
         }
     }
-    public void SavePlayerData(Checkpoint checkpoint)
+    public void SavePlayerData()
     {
         print(path);
         PlayerData playerData = new PlayerData
@@ -73,7 +88,7 @@ public class SaveManager : MonoBehaviour
             playerPassivePowersInventory = inventory.passivePowersInventory,
             Position = playerStats.transform.position,
             currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
-            lastCheckpoint = checkpoint
+            lastCheckpoint = playerStats.lastCheckpoint
         };
         JsonData = JsonUtility.ToJson(playerData, true);
         File.WriteAllText(path, "");
@@ -96,5 +111,5 @@ public class PlayerData
     public List<PassivePower> playerPassivePowersInventory;
     public Vector3 Position;
     public string currentScene;
-    public Checkpoint lastCheckpoint;
+    public Vector3 lastCheckpoint;
 }

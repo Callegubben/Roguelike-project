@@ -9,7 +9,7 @@ public class LevelExit : Interactable
 
     public override void Interact()
     {
-        saveManager.SavePlayerData(target);
+        saveManager.SavePlayerData();
         SceneManager.LoadScene(nextScene);
     }
 }

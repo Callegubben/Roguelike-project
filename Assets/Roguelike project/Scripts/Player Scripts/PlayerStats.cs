@@ -9,7 +9,6 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private SaveManager saveManager;
     [SerializeField] private Inventory inventory;
-    [SerializeField] private Checkpoint DefaultSpawn;
 
     public PlayerBase defaultPlayerCharacterStats;
 
@@ -19,7 +18,7 @@ public class PlayerStats : MonoBehaviour
     public float speed;
 
     public string currentScene;
-    public Checkpoint lastCheckpoint;
+    public Vector3 lastCheckpoint;
 
     private void OnEnable()
     {
@@ -50,15 +49,7 @@ public class PlayerStats : MonoBehaviour
         inventory.ClearInventory();
         LoadDefaultStats();
         transform.position = Vector3.zero;
-        saveManager.SavePlayerData(DefaultSpawn);
+        saveManager.SavePlayerData();
         SceneManager.LoadScene("Hub");
     }
-
-    /*private void OnGUI()
-    {
-        if (GUI.Button(new Rect(10, 115, 150, 30), "Load default stats"))
-        {
-            LoadDefaultStats();
-        }
-    }*/
 }
