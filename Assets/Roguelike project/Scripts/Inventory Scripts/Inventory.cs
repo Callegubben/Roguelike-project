@@ -14,7 +14,10 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        RedrawInventoryUI();
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            RedrawInventoryUI();
+        }
     }
 
     private void RedrawInventoryUI()
@@ -71,14 +74,5 @@ public class Inventory : MonoBehaviour
         onCooldown = true;
         yield return new WaitForSecondsRealtime(currentActivePower.cooldownTime);
         onCooldown = false;
-    }
-
-
-    private void OnGUI()
-    {
-        if (GUI.Button(new Rect(10, 80, 100, 30), "Clear Inventory"))
-        {
-            ClearInventory();
-        }
     }
 }

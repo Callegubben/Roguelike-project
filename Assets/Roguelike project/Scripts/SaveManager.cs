@@ -43,12 +43,24 @@ public class SaveManager : MonoBehaviour
             playerStats.maxHealth = loadData.maxHealth;
             playerStats.currentHealth = loadData.currentHealth;
             playerStats.speed = loadData.speed;
+            playerStats.currentScene = loadData.currentScene;
             inventory.currentActivePower = loadData.playerCurrentActivePower;
             inventory.passivePowersInventory = loadData.playerPassivePowersInventory;
-            gameObject.transform.position = loadData.Position;
+            try
+            {
+                playerStats.transform.position = loadData.lastCheckpoint.transform.position;
+            }
+            catch (MissingReferenceException)
+            {
+                playerStats.transform.position = GameObject.Find("DefaultSpawn").transform.position;
+            }
+            catch (NullReferenceException)
+            {
+                playerStats.transform.position = GameObject.Find("DefaultSpawn").transform.position;
+            }
         }
     }
-    public void SavePlayerData()
+    public void SavePlayerData(Checkpoint checkpoint)
     {
         print(path);
         PlayerData playerData = new PlayerData
@@ -59,7 +71,9 @@ public class SaveManager : MonoBehaviour
             speed = playerStats.speed,
             playerCurrentActivePower = inventory.currentActivePower,
             playerPassivePowersInventory = inventory.passivePowersInventory,
-            Position = transform.position
+            Position = playerStats.transform.position,
+            currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+            lastCheckpoint = checkpoint
         };
         JsonData = JsonUtility.ToJson(playerData, true);
         File.WriteAllText(path, "");
@@ -81,4 +95,6 @@ public class PlayerData
     public ActivePower playerCurrentActivePower;
     public List<PassivePower> playerPassivePowersInventory;
     public Vector3 Position;
+    public string currentScene;
+    public Checkpoint lastCheckpoint;
 }
