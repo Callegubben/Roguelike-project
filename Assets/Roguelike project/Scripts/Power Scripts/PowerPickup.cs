@@ -36,5 +36,6 @@ public class PowerPickup : MonoBehaviour
             default:
                 break;
         }
+        gameObject.SendMessageUpwards("Took");
     }
 }

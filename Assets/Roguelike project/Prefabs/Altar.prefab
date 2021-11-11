@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4381592938207879810
 Transform:
   m_ObjectHideFlags: 0
@@ -284,8 +284,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46436afeaf5aad543a3bf87df88be55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelData: {fileID: 0}
   altarPool: {fileID: 0}
   powerSlot: {fileID: 4381592938207879814}
+  altarID: 0
+  taken: 0
 --- !u!1 &4381592939517809575
 GameObject:
   m_ObjectHideFlags: 0

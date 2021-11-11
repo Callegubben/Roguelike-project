@@ -801,9 +801,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb490cd8f4664d2429c421666a5ea41c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelData: {fileID: 11400000, guid: 7956fa71977e1d64cb6c6e72feaa7471, type: 2}
   playerStats: {fileID: 1731972800}
   inventory: {fileID: 1387449585}
   inventoryUI: {fileID: 0}
+  checkpoints: []
+  altars: []
   JsonData: 
   defaultSpawn: {fileID: 1033104911}
 --- !u!1 &1541521877

@@ -7,10 +7,12 @@ using System;
 
 public class SaveManager : MonoBehaviour
 {
-
+    public LevelData levelData;
     public PlayerStats playerStats;
     public Inventory inventory;
     public InventoryUI inventoryUI;
+    public List<Checkpoint> checkpoints;
+    public List<Altar> altars;
 
 
     [TextArea(4,20)] public string JsonData;
@@ -18,7 +20,6 @@ public class SaveManager : MonoBehaviour
     private string path;
 
     public GameObject defaultSpawn;
-    private bool firstLoad = true;
 
     private void OnEnable()
     {
@@ -27,10 +28,14 @@ public class SaveManager : MonoBehaviour
         {
             LoadPlayerData();
         }
-        if (firstLoad)
+        if (levelData.firstLoad)
         {
             playerStats.gameObject.transform.position = defaultSpawn.transform.position;
-            firstLoad = false;
+            foreach (var item in altars)
+            {
+                levelData.altars.Add(item.taken);
+            }
+            levelData.firstLoad = false;
         }
     }
 
@@ -48,39 +53,38 @@ public class SaveManager : MonoBehaviour
             JsonData = new string(data);
             PlayerData loadData = JsonUtility.FromJson<PlayerData>(JsonData);
             playerStats.defaultPlayerCharacterStats = loadData.playerCharacter;
+            playerStats.name = loadData.playerName;
             playerStats.maxHealth = loadData.maxHealth;
             playerStats.currentHealth = loadData.currentHealth;
             playerStats.speed = loadData.speed;
             playerStats.currentScene = loadData.currentScene;
+            playerStats.lastCheckpoint = loadData.lastCheckpoint;
             inventory.currentActivePower = loadData.playerCurrentActivePower;
             inventory.passivePowersInventory = loadData.playerPassivePowersInventory;
-            try
+            playerStats.transform.position = loadData.Position;
+            int x = 0;
+            foreach (var item in levelData.altars)
             {
-                playerStats.lastCheckpoint = loadData.lastCheckpoint;
-                playerStats.transform.position = loadData.lastCheckpoint;
-            }
-            catch (MissingReferenceException)
-            {
-                playerStats.lastCheckpoint = GameObject.Find("DefaultSpawn").transform.position;
-                playerStats.transform.position = GameObject.Find("DefaultSpawn").transform.position;
-                //playerStats.transform.position = loadData.Position;
-
-            }
-            catch (NullReferenceException)
-            {
-                playerStats.lastCheckpoint = GameObject.Find("DefaultSpawn").transform.position;
-                playerStats.transform.position = GameObject.Find("DefaultSpawn").transform.position;
-                //playerStats.transform.position = loadData.Position;
-
+                altars[x].taken = item;
+                x++;
             }
         }
     }
     public void SavePlayerData()
     {
+        levelData.firstLoad = false;
+        int i = 0;
+        foreach (var item in altars)
+        {
+            levelData.altars[i] = item.taken;
+            i++;
+        }
+
         print(path);
         PlayerData playerData = new PlayerData
         {
             playerCharacter = playerStats.defaultPlayerCharacterStats,
+            playerName = playerStats.name,
             maxHealth = playerStats.maxHealth,
             currentHealth = playerStats.currentHealth,
             speed = playerStats.speed,
@@ -104,6 +108,7 @@ public class SaveManager : MonoBehaviour
 public class PlayerData 
 {
     public PlayerBase playerCharacter;
+    public string playerName;
     public float maxHealth;
     public float currentHealth;
     public float speed;
@@ -111,5 +116,5 @@ public class PlayerData
     public List<PassivePower> playerPassivePowersInventory;
     public Vector3 Position;
     public string currentScene;
-    public Vector3 lastCheckpoint;
+    public int lastCheckpoint;
 }

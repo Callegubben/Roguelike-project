@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveManager: {fileID: 0}
+  checkpointID: 0

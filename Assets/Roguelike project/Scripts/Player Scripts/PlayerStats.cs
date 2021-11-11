@@ -9,6 +9,8 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private SaveManager saveManager;
     [SerializeField] private Inventory inventory;
+    [SerializeField] private LevelDataManager levelDataManager;
+
 
     public PlayerBase defaultPlayerCharacterStats;
 
@@ -16,9 +18,10 @@ public class PlayerStats : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public float speed;
+    public Vector3 position;
 
     public string currentScene;
-    public Vector3 lastCheckpoint;
+    public int lastCheckpoint;
 
     private void OnEnable()
     {
@@ -26,6 +29,7 @@ public class PlayerStats : MonoBehaviour
         {
             LoadDefaultStats();
         }
+        position = transform.position;
     }
 
     private void LateUpdate()
@@ -50,6 +54,8 @@ public class PlayerStats : MonoBehaviour
         LoadDefaultStats();
         transform.position = Vector3.zero;
         saveManager.SavePlayerData();
+        levelDataManager.DeathReset();
         SceneManager.LoadScene("Hub");
+
     }
 }
