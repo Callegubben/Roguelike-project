@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -16,13 +17,18 @@ public class PlayerMovement : MonoBehaviour
     private bool touchingInteractable = false;
     [SerializeField]
     private Interactable interactableObject;
+    private Vector2 interactArea = new Vector2(1, 1.5f);
+    private LayerMask interactables;
 
-
+    private void Awake()
+    {
+        interactables = LayerMask.GetMask("Interactable");
+    }
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * stats.speed;
         animator.SetFloat("HorizontalSpeed", Mathf.Abs(horizontalMove));
-
+        CheckInteractArea();
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
@@ -31,12 +37,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Crouch"))
         {
             crouch = true;
-            animator.SetBool("IsCrouching", true);
         }
         else if (Input.GetButtonUp("Crouch"))
         {
             crouch = false;
-            animator.SetBool("IsCrouching", false);
         }
         if (Input.GetButtonDown("Interact") && touchingInteractable)
         {
@@ -60,25 +64,27 @@ public class PlayerMovement : MonoBehaviour
        animator.SetBool("IsJumping", false);
     }
 
+    public void OnCrouching(bool isCrouching)
+    {
+        animator.SetBool("IsCrouching", isCrouching);
+    }
+
     private void FixedUpdate()
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime , crouch, jump);
         jump = false;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void CheckInteractArea()
     {
-        Physics2D.IgnoreCollision(collision, GetComponent<BoxCollider2D>());
-        if (collision.gameObject.GetComponent<Interactable>())
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, interactArea, 0, interactables);
+        if (hits.Length > 0)
         {
+            interactableObject = hits[0].gameObject.GetComponent<Interactable>();
             touchingInteractable = true;
-            interactableObject = collision.gameObject.GetComponent<Interactable>();
+        }
+        else
+        {
+            touchingInteractable = false;
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        touchingInteractable = false;
-        interactableObject = null;
-    }
-
 }

@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name != "MainMenu")
+        if (!(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "MainMenu" || UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "WinScreen"))
         {
             RedrawInventoryUI();
         }
@@ -52,7 +52,10 @@ public class Inventory : MonoBehaviour
     {
         currentActivePower = null;
         passivePowersInventory.Clear();
-        inventoryUI.ResetInventoryUI();
+        if (!(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "MainMenu" || UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "WinScreen"))
+        {
+            inventoryUI.ResetInventoryUI();
+        }
     }
 
     public void ActivateCurrentPower()

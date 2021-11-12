@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbe9b3591d6dcd04f90085358722f717, type: 3}
-  m_Name: Fox
+  m_Script: {fileID: 11500000, guid: 14bc7ebbd4ac7aa4590de201145534c3, type: 3}
+  m_Name: StartingActivePower
   m_EditorClassIdentifier: 
-  creatureName: Fox
-  maxHealth: 100
-  currentHealth: 100
-  speed: 50
+  pool:
+  - {fileID: 11400000, guid: 666be3bfcafe4794bb80318aac93da4b, type: 2}
+  - {fileID: 11400000, guid: 5210bdbb9ea530745acc163792da616d, type: 2}

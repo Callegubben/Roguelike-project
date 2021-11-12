@@ -15,8 +15,8 @@ TagManager:
   - Player
   - Background
   - Foreground
-  - 
-  - 
+  - Enemy
+  - Interactable
   - 
   - 
   - 

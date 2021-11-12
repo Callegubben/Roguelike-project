@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Altar : MonoBehaviour
 {
-    [SerializeField] private LevelData levelData;
     [SerializeField] private PowerPool altarPool;
+    [SerializeField] private LevelData levelData;
     public PowerPickup powerSlot;
     public int altarID;
-    //[HideInInspector]
+    [HideInInspector]
     public bool taken = false;
 
     private void OnEnable()
     {
-        if (taken == false)
+        if (levelData.firstLoad)
         {
             SpawnItemFromPool();
         }

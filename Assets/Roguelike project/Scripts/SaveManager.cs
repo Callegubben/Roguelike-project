@@ -33,7 +33,11 @@ public class SaveManager : MonoBehaviour
             playerStats.gameObject.transform.position = defaultSpawn.transform.position;
             foreach (var item in altars)
             {
-                levelData.altars.Add(item.taken);
+                item.SpawnItemFromPool();
+            }
+            foreach (var item in altars)
+            {
+                levelData.altarInfoList.Add(new AltarInfo(item.taken, item.powerSlot.power));
             }
             levelData.firstLoad = false;
         }
@@ -53,7 +57,7 @@ public class SaveManager : MonoBehaviour
             JsonData = new string(data);
             PlayerData loadData = JsonUtility.FromJson<PlayerData>(JsonData);
             playerStats.defaultPlayerCharacterStats = loadData.playerCharacter;
-            playerStats.name = loadData.playerName;
+            playerStats.creatureName = loadData.playerName;
             playerStats.maxHealth = loadData.maxHealth;
             playerStats.currentHealth = loadData.currentHealth;
             playerStats.speed = loadData.speed;
@@ -63,9 +67,14 @@ public class SaveManager : MonoBehaviour
             inventory.passivePowersInventory = loadData.playerPassivePowersInventory;
             playerStats.transform.position = loadData.Position;
             int x = 0;
-            foreach (var item in levelData.altars)
+            foreach (var item in levelData.altarInfoList)
             {
-                altars[x].taken = item;
+                altars[x].taken = item.taken;
+                altars[x].powerSlot.power = item.altarPower;
+                if (!altars[x].taken)
+                {
+                    altars[x].powerSlot.UpdatePowerIcon();
+                }
                 x++;
             }
         }
@@ -76,7 +85,8 @@ public class SaveManager : MonoBehaviour
         int i = 0;
         foreach (var item in altars)
         {
-            levelData.altars[i] = item.taken;
+            levelData.altarInfoList[i].taken = item.taken;
+            levelData.altarInfoList[i].altarPower = item.powerSlot.power;
             i++;
         }
 
@@ -84,14 +94,14 @@ public class SaveManager : MonoBehaviour
         PlayerData playerData = new PlayerData
         {
             playerCharacter = playerStats.defaultPlayerCharacterStats,
-            playerName = playerStats.name,
+            playerName = playerStats.creatureName,
             maxHealth = playerStats.maxHealth,
             currentHealth = playerStats.currentHealth,
             speed = playerStats.speed,
             playerCurrentActivePower = inventory.currentActivePower,
             playerPassivePowersInventory = inventory.passivePowersInventory,
             Position = playerStats.transform.position,
-            currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+            currentScene = playerStats.currentScene,
             lastCheckpoint = playerStats.lastCheckpoint
         };
         JsonData = JsonUtility.ToJson(playerData, true);

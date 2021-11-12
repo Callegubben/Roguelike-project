@@ -24,9 +24,21 @@ public class EffectManager : MonoBehaviour
         playerStats.speed += value;
     }
 
-    public void DoDamage(float value)
+    public void DoDamage(Stats target, float value)
     {
-        playerStats.currentHealth -= value;
+        if (target is PlayerStats)
+        {
+            if (playerStats.iFrames)
+            {
+                return;
+            }
+            target.currentHealth -= value;
+            target.SendMessage("TookDamage");
+        }
+        else
+        {
+            target.currentHealth -= value;
+        }
     }
 
     public void ActivePowerEffect(int powerID)

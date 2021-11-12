@@ -10,7 +10,7 @@ public class Deadly : MonoBehaviour
     {
         if (collision.CompareTag("Player") && collision is CircleCollider2D)
         {
-            effectManager.DoDamage(500);
+            effectManager.DoDamage(collision.gameObject.GetComponent<Stats>() ,500);
         }
     }
 }

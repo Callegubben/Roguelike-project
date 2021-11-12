@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New character", menuName = "Character")]
-
-public class PlayerBase : ScriptableObject
+public class Stats : MonoBehaviour
 {
     public string creatureName;
     public float maxHealth;

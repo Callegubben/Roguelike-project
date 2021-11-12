@@ -5,13 +5,17 @@ using UnityEngine;
 public class PowerPickup : MonoBehaviour
 {
     public Power power;
+    Power tmpPower;
     public SpriteRenderer powerSprite;
+    public Inventory playerInventory;
+    private bool pickupCooldown;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision is CircleCollider2D)
+        if (collision is CircleCollider2D && !pickupCooldown)
         {
             PickUpEvent();
+            StartCoroutine(PickupCooldown());
         }
     }
     public void UpdatePowerIcon()
@@ -25,17 +29,34 @@ public class PowerPickup : MonoBehaviour
         switch (power.type)
         {
             case Power.PowerType.Active:
-                FindObjectOfType<Inventory>().AddActiveItemToInventory((ActivePower)power);
+                tmpPower = playerInventory.currentActivePower;
+                playerInventory.AddActiveItemToInventory((ActivePower)power);
                 gameObject.SetActive(false);
                 break;
             case Power.PowerType.Passive:
                 FindObjectOfType<EffectManager>().PassivePowerEffect(power.powerID);
-                FindObjectOfType<Inventory>().AddPassiveItemToInventory((PassivePower)power);
+                playerInventory.AddPassiveItemToInventory((PassivePower)power);
                 gameObject.SetActive(false);
                 break;
             default:
                 break;
         }
-        gameObject.SendMessageUpwards("Took");
+        if (tmpPower == null)
+        {
+            gameObject.SendMessageUpwards("Took");
+        }
+        else
+        {
+            power = tmpPower;
+            UpdatePowerIcon();
+        }
     }
+
+    IEnumerator PickupCooldown()
+    {
+        pickupCooldown = true;
+        yield return new WaitForSecondsRealtime(1f);
+        pickupCooldown = false;
+    }
+
 }

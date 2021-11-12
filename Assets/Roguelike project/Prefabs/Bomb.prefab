@@ -118,5 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701e02f9915d6b049a077bde2f13ed43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectManager: {fileID: 0}
+  animator: {fileID: 3074264875601435378}
   fuseTimer: 2
-  animator: {fileID: 0}
+  explosionRadius: 2
+  damageValue: 10

@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 175}
+  m_AnchoredPosition: {x: 0, y: 152}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &225764585
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Video Game
+  m_text: You WIn!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 23075110183f4ec40bc6a8b3d03120a7, type: 2}
   m_sharedMaterial: {fileID: -757935876775972847, guid: 23075110183f4ec40bc6a8b3d03120a7, type: 2}
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start
+  m_text: Main menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 23075110183f4ec40bc6a8b3d03120a7, type: 2}
   m_sharedMaterial: {fileID: -757935876775972847, guid: 23075110183f4ec40bc6a8b3d03120a7, type: 2}
@@ -428,8 +428,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -6.8904, y: 0}
+  m_SizeDelta: {x: 83.847, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &443138482
 MonoBehaviour:
@@ -478,8 +478,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 29.65
+  m_fontSizeBase: 29.65
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -626,10 +626,10 @@ RectTransform:
   m_Father: {fileID: 1563482969}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -90}
-  m_SizeDelta: {x: 160, y: 44.086}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 52.93048, y: 22.043}
+  m_SizeDelta: {x: 105.8609, y: 44.086}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1132466583
 MonoBehaviour:
@@ -675,8 +675,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1387449582}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 1387449587}
+        m_TargetAssemblyTypeName: WinScreenMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -734,7 +734,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1387449583}
-  - component: {fileID: 1387449582}
+  - component: {fileID: 1387449587}
   - component: {fileID: 1387449586}
   - component: {fileID: 1387449585}
   m_Layer: 0
@@ -744,19 +744,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1387449582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1387449581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e02075e488fcecd42a70afce542850e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStats: {fileID: 1731972800}
 --- !u!4 &1387449583
 Transform:
   m_ObjectHideFlags: 0
@@ -809,6 +796,20 @@ MonoBehaviour:
   altars: []
   JsonData: 
   defaultSpawn: {fileID: 1033104911}
+--- !u!114 &1387449587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387449581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499c96ee2eeb86c408c8b11cb5ed284c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveManager: {fileID: 1387449586}
+  playerStats: {fileID: 1731972800}
 --- !u!1 &1541521877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1011,7 @@ GameObject:
   - component: {fileID: 1575660641}
   - component: {fileID: 1575660640}
   m_Layer: 5
-  m_Name: Play Button
+  m_Name: Menu Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1034,8 +1035,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 11}
-  m_SizeDelta: {x: 160, y: 44.086}
+  m_AnchoredPosition: {x: 0, y: -27}
+  m_SizeDelta: {x: 200.3536, y: 44.086}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1575660640
 MonoBehaviour:
@@ -1081,9 +1082,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1387449582}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: StartGame
+      - m_Target: {fileID: 1387449587}
+        m_TargetAssemblyTypeName: WinScreenMenu, Assembly-CSharp
+        m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

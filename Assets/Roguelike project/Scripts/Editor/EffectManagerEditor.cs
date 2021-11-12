@@ -19,7 +19,7 @@ public class EffectManagerEditor : Editor
             damageAmount = EditorGUILayout.IntSlider("Damage", damageAmount, 0, 100);
             if (GUILayout.Button("Do damage"))
             {
-                effectManager.DoDamage(damageAmount);
+                effectManager.DoDamage(FindObjectOfType<PlayerStats>() ,damageAmount);
             }
             GUILayout.EndHorizontal();
         }

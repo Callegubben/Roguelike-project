@@ -119,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: {fileID: 0}
   powerSprite: {fileID: 4381592939517809573}
+  playerInventory: {fileID: 0}
 --- !u!331 &2936093166326786324
 SpriteMask:
   m_ObjectHideFlags: 0
@@ -284,7 +285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46436afeaf5aad543a3bf87df88be55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelData: {fileID: 0}
   altarPool: {fileID: 0}
   powerSlot: {fileID: 4381592938207879814}
   altarID: 0
@@ -361,7 +361,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

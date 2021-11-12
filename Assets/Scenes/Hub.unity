@@ -293,12 +293,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4381592938207879809, guid: 456b8c81935e1a941b7c7a4a79cd708c, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4381592938207879811, guid: 456b8c81935e1a941b7c7a4a79cd708c, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4381592938207879814, guid: 456b8c81935e1a941b7c7a4a79cd708c, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 371999178}
     - target: {fileID: 4381592939363922484, guid: 456b8c81935e1a941b7c7a4a79cd708c, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -358,10 +362,14 @@ PrefabInstance:
     - target: {fileID: 4381592939363922491, guid: 456b8c81935e1a941b7c7a4a79cd708c, type: 3}
       propertyPath: altarPool
       value: 
-      objectReference: {fileID: 11400000, guid: c3bbce8a0af2f9c4cb0ae2428a5f1966, type: 2}
+      objectReference: {fileID: 11400000, guid: 1c9b4eab2d9e07e49b390024c602aff0, type: 2}
+    - target: {fileID: 4381592939363922491, guid: 456b8c81935e1a941b7c7a4a79cd708c, type: 3}
+      propertyPath: levelData
+      value: 
+      objectReference: {fileID: 11400000, guid: 25e6c6fbb5599974180b823e2555a117, type: 2}
     - target: {fileID: 4381592939517809573, guid: 456b8c81935e1a941b7c7a4a79cd708c, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456b8c81935e1a941b7c7a4a79cd708c, type: 3}
@@ -5359,7 +5367,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -8199,7 +8207,7 @@ GameObject:
   - component: {fileID: 1205526093}
   - component: {fileID: 1205526092}
   - component: {fileID: 1205526091}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LevelExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8235,7 +8243,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveManager: {fileID: 1956588636}
   nextScene: Testmap
-  target: {fileID: 652532128}
 --- !u!61 &1205526092
 BoxCollider2D:
   m_ObjectHideFlags: 0
