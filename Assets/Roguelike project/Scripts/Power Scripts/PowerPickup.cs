@@ -15,7 +15,10 @@ public class PowerPickup : MonoBehaviour
         if (collision is CircleCollider2D && !pickupCooldown)
         {
             PickUpEvent();
-            StartCoroutine(PickupCooldown());
+            if (tmpPower != null)
+            {
+                StartCoroutine(PickupCooldown());
+            }
         }
     }
     public void UpdatePowerIcon()

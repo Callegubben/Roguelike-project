@@ -56,7 +56,7 @@ public class SaveManager : MonoBehaviour
             }
             JsonData = new string(data);
             PlayerData loadData = JsonUtility.FromJson<PlayerData>(JsonData);
-            playerStats.defaultPlayerCharacterStats = loadData.playerCharacter;
+            //playerStats.defaultPlayerCharacterStats = loadData.playerCharacter;
             playerStats.creatureName = loadData.playerName;
             playerStats.maxHealth = loadData.maxHealth;
             playerStats.currentHealth = loadData.currentHealth;
@@ -93,7 +93,7 @@ public class SaveManager : MonoBehaviour
         print(path);
         PlayerData playerData = new PlayerData
         {
-            playerCharacter = playerStats.defaultPlayerCharacterStats,
+            //playerCharacter = playerStats.defaultPlayerCharacterStats,
             playerName = playerStats.creatureName,
             maxHealth = playerStats.maxHealth,
             currentHealth = playerStats.currentHealth,
@@ -117,7 +117,7 @@ public class SaveManager : MonoBehaviour
 [Serializable]
 public class PlayerData 
 {
-    public PlayerBase playerCharacter;
+    //public PlayerBase playerCharacter;
     public string playerName;
     public float maxHealth;
     public float currentHealth;
