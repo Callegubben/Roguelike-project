@@ -75,10 +75,10 @@ GameObject:
   - component: {fileID: 8770701705631283019}
   - component: {fileID: 8770701705631283029}
   - component: {fileID: 8770701705631283024}
-  - component: {fileID: 8770701705631283025}
-  - component: {fileID: 8770701705631283023}
   - component: {fileID: 8770701705631283028}
+  - component: {fileID: 8770701705631283025}
   - component: {fileID: 8770701705631283018}
+  - component: {fileID: 8770701705631283023}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -218,6 +218,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &8770701705631283028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8770701705631283026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9cea42b5641ae418b6154d04c14c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 8770701705631283025}
+  stats: {fileID: 8770701705631283023}
+  animator: {fileID: 8770701705631283018}
+  inventory: {fileID: 0}
+  touchingInteractable: 0
+  interactableObject: {fileID: 0}
 --- !u!114 &8770701705631283025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,7 +258,6 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 8770701704363212377}
   m_CeilingCheck: {fileID: 8770701705293903702}
   m_CrouchDisableCollider: {fileID: 8770701705631283029}
-  m_Grounded: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -258,44 +275,19 @@ MonoBehaviour:
         m_CallState: 2
   OnCrouchEvent:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &8770701705631283023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8770701705631283026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be76657074fa7f841923457f66de15a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  defaultPlayerCharacterStats: {fileID: 11400000, guid: 0ffada6f2e74f1b4c93715d7e2512b56, type: 2}
-  name: 
-  maxHealth: 0
-  currentHealth: 0
-  speed: 0
-  lastCheckpoint: {fileID: 0}
---- !u!114 &8770701705631283028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8770701705631283026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9cea42b5641ae418b6154d04c14c4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 8770701705631283025}
-  stats: {fileID: 8770701705631283023}
-  animator: {fileID: 8770701705631283018}
-  inventory: {fileID: 0}
-  touchingInteractable: 0
-  interactableObject: {fileID: 0}
+      m_Calls:
+      - m_Target: {fileID: 8770701705631283028}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnCrouching
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &8770701705631283018
 Animator:
   serializedVersion: 4
@@ -316,3 +308,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8770701705631283023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8770701705631283026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be76657074fa7f841923457f66de15a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creatureName: 
+  maxHealth: 0
+  currentHealth: 0
+  speed: 0
+  saveManager: {fileID: 0}
+  inventory: {fileID: 0}
+  levelDataManager: {fileID: 11400000, guid: cfcd290bc74b8f34e9ab89b517ad8b59, type: 2}
+  defaultPlayerCharacterStats: {fileID: 11400000, guid: 0ffada6f2e74f1b4c93715d7e2512b56, type: 2}
+  position: {x: 0, y: 0, z: 0}
+  currentScene: 
+  lastCheckpoint: 0
+  iFrames: 0

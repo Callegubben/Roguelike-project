@@ -48157,11 +48157,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7691213149168273392, guid: 7d865fd7e08497641bbef5e26094209c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7d865fd7e08497641bbef5e26094209c, type: 3}
---- !u!1 &537384834 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6032142895179238223, guid: 7d865fd7e08497641bbef5e26094209c, type: 3}
-  m_PrefabInstance: {fileID: 537384833}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &592847305 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8770701705631283026, guid: c877b90f4f29ec74da8ea8f49a1d58f5, type: 3}
@@ -48181,17 +48176,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be76657074fa7f841923457f66de15a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &592847318 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8770701705631283028, guid: c877b90f4f29ec74da8ea8f49a1d58f5, type: 3}
-  m_PrefabInstance: {fileID: 8770701705047611035}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592847305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9cea42b5641ae418b6154d04c14c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &601277503 stripped
@@ -51197,7 +51181,7 @@ MonoBehaviour:
     ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7784201, y: 1}
+    m_SensorSize: {x: 1.7771429, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -51365,7 +51349,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1662401578369769208, guid: 7d865fd7e08497641bbef5e26094209c, type: 3}
   m_PrefabInstance: {fileID: 537384833}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 537384834}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1f23a373be349d4486561254ac608e8, type: 3}
@@ -60278,7 +60262,7 @@ PrefabInstance:
     - target: {fileID: 8194129976414173329, guid: 164292db55ddf3a4bb742c2a63b1b8dd, type: 3}
       propertyPath: defaultSpawn
       value: 
-      objectReference: {fileID: 537384834}
+      objectReference: {fileID: 1269400316}
     - target: {fileID: 8194129976414173329, guid: 164292db55ddf3a4bb742c2a63b1b8dd, type: 3}
       propertyPath: altars.Array.size
       value: 2
@@ -60387,42 +60371,6 @@ PrefabInstance:
       propertyPath: saveManager
       value: 
       objectReference: {fileID: 967809995}
-    - target: {fileID: 8770701705631283023, guid: c877b90f4f29ec74da8ea8f49a1d58f5, type: 3}
-      propertyPath: lastCheckpoint
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8770701705631283023, guid: c877b90f4f29ec74da8ea8f49a1d58f5, type: 3}
-      propertyPath: levelDataManager
-      value: 
-      objectReference: {fileID: 11400000, guid: cfcd290bc74b8f34e9ab89b517ad8b59, type: 2}
-    - target: {fileID: 8770701705631283025, guid: c877b90f4f29ec74da8ea8f49a1d58f5, type: 3}
-      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8770701705631283025, guid: c877b90f4f29ec74da8ea8f49a1d58f5, type: 3}
-      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8770701705631283025, guid: c877b90f4f29ec74da8ea8f49a1d58f5, type: 3}
-      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 592847318}
-    - target: {fileID: 8770701705631283025, guid: c877b90f4f29ec74da8ea8f49a1d58f5, type: 3}
-      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8770701705631283025, guid: c877b90f4f29ec74da8ea8f49a1d58f5, type: 3}
-      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnCrouching
-      objectReference: {fileID: 0}
-    - target: {fileID: 8770701705631283025, guid: c877b90f4f29ec74da8ea8f49a1d58f5, type: 3}
-      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerMovement, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8770701705631283025, guid: c877b90f4f29ec74da8ea8f49a1d58f5, type: 3}
-      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8770701705631283026, guid: c877b90f4f29ec74da8ea8f49a1d58f5, type: 3}
       propertyPath: m_Name
       value: Player

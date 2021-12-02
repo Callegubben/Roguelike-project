@@ -11,6 +11,7 @@ public class SaveManager : MonoBehaviour
     public PlayerStats playerStats;
     public Inventory inventory;
     public InventoryUI inventoryUI;
+    public Checkpoint defaultSpawn;
     public List<Checkpoint> checkpoints;
     public List<Altar> altars;
 
@@ -19,7 +20,6 @@ public class SaveManager : MonoBehaviour
     private string filename = "Savedata.game";
     private string path;
 
-    public GameObject defaultSpawn;
 
     private void OnEnable()
     {

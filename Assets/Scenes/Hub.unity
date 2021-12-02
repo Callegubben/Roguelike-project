@@ -18716,6 +18716,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7618489103468037481, guid: 04132b2e866438f4dad406a83528b804, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 7618489103468037481, guid: 04132b2e866438f4dad406a83528b804, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618489103468037481, guid: 04132b2e866438f4dad406a83528b804, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618489103468037481, guid: 04132b2e866438f4dad406a83528b804, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618489103468037481, guid: 04132b2e866438f4dad406a83528b804, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7618489104474514604, guid: 04132b2e866438f4dad406a83528b804, type: 3}
       propertyPath: playerStats
       value: 
