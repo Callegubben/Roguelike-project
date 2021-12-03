@@ -586,11 +586,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1033104911 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1628317806459709255, guid: 641ebbea974a769449f1a99df142951b, type: 3}
-  m_PrefabInstance: {fileID: 1577874156}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1132466581
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,10 +800,10 @@ MonoBehaviour:
   playerStats: {fileID: 1731972800}
   inventory: {fileID: 1387449585}
   inventoryUI: {fileID: 0}
+  defaultSpawn: {fileID: 1577874157}
   checkpoints: []
   altars: []
   JsonData: 
-  defaultSpawn: {fileID: 1033104911}
 --- !u!1 &1541521877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,6 +1195,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 641ebbea974a769449f1a99df142951b, type: 3}
+--- !u!114 &1577874157 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1628317806459709304, guid: 641ebbea974a769449f1a99df142951b, type: 3}
+  m_PrefabInstance: {fileID: 1577874156}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f23a373be349d4486561254ac608e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1731972798
 PrefabInstance:
   m_ObjectHideFlags: 0

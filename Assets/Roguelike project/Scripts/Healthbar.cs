@@ -3,20 +3,18 @@ using TMPro;
 
 public class Healthbar : MonoBehaviour
 {
-    [SerializeField] private RectTransform maxHealthBar, currentHealthBar;
+    [SerializeField] private RectTransform currentHealthBar;
     public PlayerStats playerStats;
     public TextMeshProUGUI healthbarText;
-
-    void Start()
-    {
-        currentHealthBar.sizeDelta = new Vector2(playerStats.currentHealth, 20);
-        maxHealthBar.sizeDelta = new Vector2(playerStats.maxHealth+5, 25);
-    }
+    private float maxWidth = 195;
+    private float lastHP;
 
     private void Update()
     {
-        currentHealthBar.sizeDelta = new Vector2(playerStats.currentHealth, 20);
-        maxHealthBar.sizeDelta = new Vector2(playerStats.maxHealth + 5, 25);
-        healthbarText.text = $"{playerStats.currentHealth}/{playerStats.maxHealth}";
+        if (playerStats.currentHealth != lastHP)
+        {
+            currentHealthBar.sizeDelta = new Vector2((maxWidth * (playerStats.currentHealth/playerStats.maxHealth)),currentHealthBar.sizeDelta.y);
+        }
+        lastHP = playerStats.currentHealth;
     }
 }

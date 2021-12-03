@@ -545,7 +545,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1628317806459709304, guid: 641ebbea974a769449f1a99df142951b, type: 3}
   m_PrefabInstance: {fileID: 1628317805958774488}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1628317805958774489}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1f23a373be349d4486561254ac608e8, type: 3}
@@ -18528,7 +18528,7 @@ PrefabInstance:
     - target: {fileID: 8194129976414173329, guid: 164292db55ddf3a4bb742c2a63b1b8dd, type: 3}
       propertyPath: defaultSpawn
       value: 
-      objectReference: {fileID: 1628317805958774489}
+      objectReference: {fileID: 652532128}
     - target: {fileID: 8194129976414173329, guid: 164292db55ddf3a4bb742c2a63b1b8dd, type: 3}
       propertyPath: altars.Array.size
       value: 1
@@ -18903,8 +18903,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 641ebbea974a769449f1a99df142951b, type: 3}
---- !u!1 &1628317805958774489 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1628317806459709255, guid: 641ebbea974a769449f1a99df142951b, type: 3}
-  m_PrefabInstance: {fileID: 1628317805958774488}
-  m_PrefabAsset: {fileID: 0}

@@ -286,6 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   altarPool: {fileID: 0}
+  levelData: {fileID: 0}
   powerSlot: {fileID: 4381592938207879814}
   altarID: 0
   taken: 0

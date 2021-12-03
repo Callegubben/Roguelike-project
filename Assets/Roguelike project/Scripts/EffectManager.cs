@@ -7,6 +7,7 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private Object bombPrefab;
     public GameObject player;
     public Inventory inventory;
+    public Animator healthbarAnimator;
     private PlayerStats playerStats;
 
     private void OnEnable()
@@ -33,6 +34,7 @@ public class EffectManager : MonoBehaviour
                 return;
             }
             target.currentHealth -= value;
+            healthbarAnimator.SetTrigger("Damage");
             target.SendMessage("TookDamage");
         }
         else
