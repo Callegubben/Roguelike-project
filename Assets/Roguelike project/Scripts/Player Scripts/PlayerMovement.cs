@@ -32,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
-            //animator.SetTrigger("Jump");
             animator.SetBool("IsJumping", true);
         }
         if (Input.GetButtonDown("Crouch"))
@@ -57,6 +56,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 print("No item equipped");
             }
+        }
+        if (Input.GetButtonDown("Attack"))
+        {
+            animator.SetTrigger("Attack");
         }
     }
 
