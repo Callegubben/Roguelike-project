@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         CheckInteractArea();
         if (Input.GetButtonDown("Jump"))
         {
-            jump = true;
+            jump = true; 
             animator.SetBool("IsJumping", true);
         }
         if (Input.GetButtonDown("Crouch"))
