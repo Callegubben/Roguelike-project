@@ -11,6 +11,7 @@ public class InventoryUI : MonoBehaviour
     public Transform itemSlotParent;
     public List<GameObject> inventorySlots;
 
+    public Image activeInventoryBackground;
     public ActiveInventorySlot activeInventorySlot;
 
     public Object InventorySlotPrefab;

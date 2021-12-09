@@ -29,4 +29,9 @@ public class ActiveInventorySlot : MonoBehaviour
         power = null;
         icon.sprite = null;
     }
+
+    IEnumerator OnCooldown(float cooldownTime)
+    {
+        yield return new WaitForSecondsRealtime(cooldownTime);
+    }
 }

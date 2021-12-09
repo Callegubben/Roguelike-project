@@ -74,8 +74,16 @@ public class Inventory : MonoBehaviour
 
     IEnumerator CooldownTimer()
     {
+        float elapsedTime = 0f;
         onCooldown = true;
-        yield return new WaitForSecondsRealtime(currentActivePower.cooldownTime);
+        inventoryUI.activeInventorySlot.icon.color = new Color32(255, 255, 255, 150);
+        while (elapsedTime < currentActivePower.cooldownTime)
+        {
+            inventoryUI.activeInventoryBackground.fillAmount = elapsedTime / currentActivePower.cooldownTime;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
         onCooldown = false;
+        inventoryUI.activeInventorySlot.icon.color = new Color32(255, 255, 255, 255);
     }
 }
