@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: Castle tilemap_20
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 123903595, guid: 86d06d8738f0e634a9c81643587b9b71, type: 3}
+  m_Sprite: {fileID: -2054342736, guid: 86d06d8738f0e634a9c81643587b9b71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

@@ -13,9 +13,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
     private bool crouch = false;
-    [SerializeField]
     private bool touchingInteractable = false;
-    [SerializeField]
     private Interactable interactableObject;
     private Vector2 interactArea = new Vector2(1, 1.5f);
     private LayerMask interactables;

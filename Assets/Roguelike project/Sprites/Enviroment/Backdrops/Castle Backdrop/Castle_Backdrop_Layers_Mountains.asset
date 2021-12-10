@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Castle tilemap_36
+  m_Name: Castle_Backdrop_Layers_Mountains
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -1100961039, guid: 86d06d8738f0e634a9c81643587b9b71, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 219a8322da58bc344b720b0d62b48d2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
