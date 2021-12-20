@@ -34,11 +34,6 @@ public class Bomb : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void DamageTargetsInRange()
-    {
-       // List<Stats> hits = damageArea.
-    }
-
     IEnumerator StartFuse()
     {
         yield return new WaitForSecondsRealtime(fuseTimer);

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestmapData
   m_EditorClassIdentifier: 
   firstLoad: 1
-  altars: 
+  altarInfoList: []

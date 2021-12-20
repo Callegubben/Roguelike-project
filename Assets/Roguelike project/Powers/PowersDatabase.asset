@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0e23a5e6a7c574a8e73ce74d9924b7, type: 3}
+  m_Name: PowersDatabase
+  m_EditorClassIdentifier: 
+  allPowers:
+  - id: 1
+    power: {fileID: 11400000, guid: 666be3bfcafe4794bb80318aac93da4b, type: 2}
+  - id: 2
+    power: {fileID: 11400000, guid: 5210bdbb9ea530745acc163792da616d, type: 2}
+  - id: 3
+    power: {fileID: 11400000, guid: 41f1ab8c799d3374b98f42d5b8eeb572, type: 2}
+  - id: 4
+    power: {fileID: 11400000, guid: 5cbabaa4b3c564c429df3695e059c012, type: 2}

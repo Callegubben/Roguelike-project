@@ -11,6 +11,7 @@ public class SaveManager : MonoBehaviour
     public PlayerStats playerStats;
     public Inventory inventory;
     public InventoryUI inventoryUI;
+    public PowerDatabase database;
     public Checkpoint defaultSpawn;
     public List<Checkpoint> checkpoints;
     public List<Altar> altars;
@@ -62,8 +63,14 @@ public class SaveManager : MonoBehaviour
             playerStats.speed = loadData.speed;
             playerStats.currentScene = loadData.currentScene;
             playerStats.lastCheckpoint = loadData.lastCheckpoint;
-            inventory.currentActivePower = loadData.playerCurrentActivePower;
-            inventory.passivePowersInventory = loadData.playerPassivePowersInventory;
+            if (loadData.playerCurrentActivePower != 0)
+            {
+                inventory.currentActivePower = (ActivePower)database.FindInDatabase(loadData.playerCurrentActivePower);
+            }
+            foreach (var item in loadData.playerPassivePowersInventory)
+            {
+                inventory.AddPassiveItemToInventory((PassivePower)database.FindInDatabase(item));
+            }
             playerStats.transform.position = loadData.Position;
             int x = 0;
             foreach (var item in levelData.altarInfoList)
@@ -88,20 +95,27 @@ public class SaveManager : MonoBehaviour
             levelData.altarInfoList[i].altarPower = item.powerSlot.power;
             i++;
         }
-
         print(path);
+        List<int> tmpList = new();
+        foreach (var item in inventory.passivePowersInventory)
+        {
+            tmpList.Add(item.powerID);
+        }
         PlayerData playerData = new PlayerData
         {
             playerName = playerStats.creatureName,
             maxHealth = playerStats.maxHealth,
             currentHealth = playerStats.currentHealth,
             speed = playerStats.speed,
-            playerCurrentActivePower = inventory.currentActivePower,
-            playerPassivePowersInventory = inventory.passivePowersInventory,
+            playerPassivePowersInventory = tmpList,
             Position = playerStats.transform.position,
             currentScene = playerStats.currentScene,
             lastCheckpoint = playerStats.lastCheckpoint
         };
+        if (inventory.currentActivePower != null)
+        {
+            playerData.playerCurrentActivePower = inventory.currentActivePower.powerID;
+        }
         JsonData = JsonUtility.ToJson(playerData, true);
         File.WriteAllText(path, "");
         using (FileStream stream = File.OpenWrite(path))
@@ -113,14 +127,16 @@ public class SaveManager : MonoBehaviour
 }
 
 [Serializable]
-public class PlayerData 
+public class PlayerData
 {
+    public PlayerData(){}
+
     public string playerName;
     public float maxHealth;
     public float currentHealth;
     public float speed;
-    public ActivePower playerCurrentActivePower;
-    public List<PassivePower> playerPassivePowersInventory;
+    public int playerCurrentActivePower;
+    public List<int> playerPassivePowersInventory;
     public Vector3 Position;
     public string currentScene;
     public int lastCheckpoint;

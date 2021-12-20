@@ -47,6 +47,7 @@ MonoBehaviour:
   bombPrefab: {fileID: 3074264875601435377, guid: 33a89602fd3f0fd459b8d99c127e8783, type: 3}
   player: {fileID: 0}
   inventory: {fileID: 8194129976253130597}
+  healthbarAnimator: {fileID: 0}
 --- !u!1 &8194129976253130596
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,9 +141,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb490cd8f4664d2429c421666a5ea41c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelData: {fileID: 0}
   playerStats: {fileID: 0}
   inventory: {fileID: 8194129976253130597}
   inventoryUI: {fileID: 0}
+  database: {fileID: 11400000, guid: a879a24a196ebc54887d56712e2c07db, type: 2}
+  defaultSpawn: {fileID: 0}
+  checkpoints: []
+  altars: []
   JsonData: 
 --- !u!1 &8194129976747572241
 GameObject:

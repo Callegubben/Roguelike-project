@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Regular Bomb
   m_EditorClassIdentifier: 
   powerName: RegularBomb
-  powerID: 1
+  powerID: 2
+  powerEffect: 1
   powerDescription: Just a lil bomb
   icon: {fileID: 21300000, guid: d118af3dffceabf428c503a0de7c0051, type: 3}
   type: 0

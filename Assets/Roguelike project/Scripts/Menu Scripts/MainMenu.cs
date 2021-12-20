@@ -9,6 +9,10 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        if (playerStats.currentScene.Equals(string.Empty))
+        {
+            playerStats.currentScene = "Hub";
+        }
         try
         {
             SceneManager.LoadScene(playerStats.currentScene);

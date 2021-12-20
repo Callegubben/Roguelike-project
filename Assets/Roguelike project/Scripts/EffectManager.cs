@@ -43,9 +43,9 @@ public class EffectManager : MonoBehaviour
         }
     }
 
-    public void ActivePowerEffect(int powerID)
+    public void ActivePowerEffect(int powerEffect)
     {
-        switch (powerID)
+        switch (powerEffect)
         {
             case 1:
                 GameObject newBomb = (GameObject)Instantiate(bombPrefab, player.transform.position, Quaternion.identity);
@@ -57,9 +57,9 @@ public class EffectManager : MonoBehaviour
         }
     }
 
-    public void PassivePowerEffect(int powerID)
+    public void PassivePowerEffect(int powerEffect)
     {
-        switch (powerID)
+        switch (powerEffect)
         {
             case 1:
                 ChangePlayerMaxHealth(25f);

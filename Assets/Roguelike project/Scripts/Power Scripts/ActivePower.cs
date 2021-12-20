@@ -6,12 +6,11 @@ using UnityEngine;
 
 public class ActivePower : Power
 {
-    [HideInInspector] public readonly PowerType powerType = PowerType.Active;
     public float cooldownTime;
 
     public override void UsePower()
     {
-        FindObjectOfType<EffectManager>().ActivePowerEffect(this.powerID);
+        FindObjectOfType<EffectManager>().ActivePowerEffect(this.powerEffect);
     }
 
     ActivePower()

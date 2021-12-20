@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ae39047fb1d1d4f9336a78962d6199, type: 3}
   m_Name: HubData
   m_EditorClassIdentifier: 
-  firstLoad: 1
-  altars: 
+  firstLoad: 0
+  altarInfoList:
+  - taken: 0
+    altarPower: {fileID: 0}

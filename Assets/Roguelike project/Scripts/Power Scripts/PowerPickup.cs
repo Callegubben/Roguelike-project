@@ -31,12 +31,12 @@ public class PowerPickup : MonoBehaviour
     {
         switch (power.type)
         {
-            case Power.PowerType.Active:
+            case PowerType.Active:
                 tmpPower = playerInventory.currentActivePower;
                 playerInventory.AddActiveItemToInventory((ActivePower)power);
                 gameObject.SetActive(false);
                 break;
-            case Power.PowerType.Passive:
+            case PowerType.Passive:
                 FindObjectOfType<EffectManager>().PassivePowerEffect(power.powerID);
                 playerInventory.AddPassiveItemToInventory((PassivePower)power);
                 gameObject.SetActive(false);
